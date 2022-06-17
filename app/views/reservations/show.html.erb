@@ -1,0 +1,31 @@
+<header>
+    
+  <% if user_signed_in? %>
+    <%= render 'shared/logged_in_header' %>
+  <% else %>
+    <%= render 'shared/not_logged_in_header' %>
+  <% end %>
+
+</header>
+
+<main class = "show_main">
+  
+  <h3>予約内容</h3>
+  <div class = "information_show">
+
+        <p class = "information"><strong>ルーム名:</strong><br><%= @reservation.name %></p>
+        <p class = "information"><strong>開始日:</strong><br><%= @reservation.start_date %></p>
+        <p class = "information"><strong>終了日:</strong><br><%= @reservation.end_date %></p>
+        <p class = "information"><strong>人数:</strong><br><%= @reservation.people %>人</p>
+        <p class = "information"><strong>お支払い金額:</strong><br>¥<%= @reservation.price %></p>
+        
+        <p class = "reference"><%=link_to "ルーム情報", room_path(@reservation.room_id) %></p>
+        <p class = "reference"><%=link_to "予約をキャンセルする", reservation_path(@reservation.id), method: :delete, data: { confirm: "予約を取消しますか？" } %></p>
+        <p class = "reference"><%=link_to "戻る", :reservations %></p>
+  </div>
+  
+</main>
+
+<footer>
+  <%= render "shared/footer" %>
+</footer>

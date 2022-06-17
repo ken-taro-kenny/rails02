@@ -1,0 +1,74 @@
+<header>
+    
+  <% if user_signed_in? %>
+    <%= render 'shared/logged_in_header' %>
+  <% else %>
+    <%= render 'shared/not_logged_in_header' %>
+  <% end %>
+
+</header>
+
+<main class = "show_main">
+  
+  <h2>ユーザー編集</h2>
+  <div class = "information_show">
+    
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    
+    <div class="field information">
+      <%= f.label :名前 %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    </div>
+    
+    <div class="field information">
+      <%= f.label :アイコン %><br />
+      <%= f.file_field :image, autofocus: true, autocomplete: "image" %>
+    </div>
+    
+    <div class="field information">
+      <%= f.label :自己紹介 %><br />
+      <%= f.text_area :introduction, autofocus: true, autocomplete: "introduction" %>
+    </div>
+  
+    <div class="field information">
+      <%= f.label :emailアドレス %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+  
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+  
+    <div class="field information">
+      <%= f.label :新しいパスワード %> <i>（変更する場合は入力）</i><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+      <% if @minimum_password_length %>
+        <br />
+        <em><%= @minimum_password_length %> characters minimum</em>
+      <% end %>
+    </div>
+  
+    <div class="field information">
+      <%= f.label :新しいパスワード（確認） %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+  
+    <div class="field information">
+      <%= f.label :現在のパスワード %> <i class = "required">（必須）</i><br />
+      <%= f.password_field :current_password, autocomplete: "current-password" %>
+    </div>
+  
+    <div class="actions">
+      <p class = "reference"><%= f.submit "上記の内容に変更する" %></p>
+    </div>
+    
+  <% end %>
+  
+  <p class = "reference"><%= link_to "戻る", user_path(current_user) %></p>
+  </div>
+</main>
+
+<footer>
+  <%= render "shared/footer" %>
+</footer>

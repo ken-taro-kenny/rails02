@@ -1,0 +1,56 @@
+<header>
+    
+  <% if user_signed_in? %>
+    <%= render 'shared/logged_in_header' %>
+  <% else %>
+    <%= render 'shared/not_logged_in_header' %>
+  <% end %>
+
+</header>
+
+<main class = "show_main">
+  
+  <h3>ルーム登録</h3>
+  
+  <div class = "information_show">
+    <%= render "shared/error", obj: @room %>
+  <%= form_with model: @room, lacal: true do |f| %>
+    
+    <div class="field information">
+      <%= f.label :name, "ルーム名" %><i class = "required">（必須）</i><br />
+      <%= f.text_field :name %>
+    </div>
+    
+    <div class="field information">
+      <%= f.label :address, "住所" %><i class = "required">（必須）</i><br />
+      <%= f.text_field :address %>
+    </div>
+  
+    <div class="field information">
+      <%= f.label :image, "写真" %><i class = "required">（必須）</i><br />
+      <%= f.file_field :image %>
+    </div>
+  
+    <div class="field information">
+      <%= f.label :price, "値段(一泊)" %><i class = "required">（必須）</i><br />
+      <%= f.text_field :price %>
+    </div>
+    
+    <div class="field information">
+      <%= f.label :detail, "説明" %><i class = "required">（必須）</i><br />
+      <%= f.text_area :detail %>
+    </div>
+    
+    <%= f.hidden_field :user_id, value: @user.id %>
+  
+    <div class="actions">
+      <%= f.submit "上記の内容で登録する" %>
+    </div>
+  <% end %>
+  
+</div>
+</main>
+
+<footer>
+  <%= render "shared/footer" %>
+</footer>

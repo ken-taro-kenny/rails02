@@ -1,0 +1,55 @@
+<header>
+    
+  <% if user_signed_in? %>
+    <%= render 'shared/logged_in_header' %>
+  <% else %>
+    <%= render 'shared/not_logged_in_header' %>
+  <% end %>
+
+</header>
+
+<main class = "show_main">
+  
+  <h3>ルーム予約</h3>
+  
+  <div class = "information_show">
+    <p class="notice"><%= flash[:notice] %></p>
+    <!--<%= render "shared/error", obj: @reservation %>-->
+  <%= form_with model: @reservation, url: 'reservations/confirm', local: true do |f| %>
+    
+    <div class="field information">
+      <h4><%= @room.name %></h4>
+      <h4>¥<%= @room.price %>/日</h4>
+    </div>
+    
+    <div class="field information">
+      <%= f.label :start_date, "開始日" %><br />
+      <%= f.date_field :start_date %>
+    </div>
+    
+    <div class="field information">
+      <%= f.label :end_date, "終了日" %><br />
+      <%= f.date_field :end_date %>
+    </div>
+    
+    <div class="field information">
+      <%= f.label :people, "人数" %><br />
+      <%= f.text_field :people, value:1 %>
+    </div>
+    
+    <%= f.hidden_field :name, value: @room.name %>
+    <%= f.hidden_field :price, value: @room.price %>
+    <%= f.hidden_field :user_id, value: @user.id %>
+    <%= f.hidden_field :room_id, value: @room.id %>
+  
+    <div class="actions">
+      <%= f.submit "確認画面へ" %>
+    </div>
+  <% end %>
+  
+</div>
+</main>
+
+<footer>
+  <%= render "shared/footer" %>
+</footer>

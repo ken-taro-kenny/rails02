@@ -1,0 +1,58 @@
+<header>
+    
+  <% if user_signed_in? %>
+    <%= render 'shared/logged_in_header' %>
+  <% else %>
+    <%= render 'shared/not_logged_in_header' %>
+  <% end %>
+
+</header>
+
+<main1>
+  
+  <p class="flash"><%= flash[:notice] %></p>
+  
+  <div class="main_search">
+    <h2 class = "main_title">Potepan Shareでまだ体験したことのない旅をしよう</h2>
+    <%= form_with url: new_travel_path, method: :get, local: true do |f| %>
+      <%= f.text_field :area_word, placeholder: "エリア", class:"main_form" %><br>
+      <%= f.submit "探す", class:"main_form" %>
+    <% end %>
+  </div>
+  
+</main1>
+
+<main2>
+  <div class = "recommendation_area">
+    
+    <h2 class = "main_title">おすすめのエリア</h2>
+  
+    <div class = "area_link">
+      <span>東京</span>
+      <%= link_to image_tag('https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg', class:"area_image"), new_travel_path(area_word: "東京都") %>
+    </div>
+  
+    <div class = "area_link">
+      <span>大阪</span>
+      <%= link_to image_tag('https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg', class:"area_image"), new_travel_path(area_word: "大阪府") %>
+    </div>
+    
+    <br class = "responsible">
+    
+    <div class = "area_link">
+      <span>京都</span>
+      <%= link_to image_tag('https://presite-potepancamp-rails-02.herokuapp.com/assets/img_kyoto.jpg', class:"area_image"), new_travel_path(area_word: "京都府") %>
+    </div>
+    
+    <div class = "area_link">
+      <span>札幌</span>
+      <%= link_to image_tag('https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg', class:"area_image"), new_travel_path(area_word: "札幌市") %>
+    </div>
+    
+  </div>
+  
+</main2>
+
+<footer>
+  <%= render "shared/footer" %>
+</footer>

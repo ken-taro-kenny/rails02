@@ -1,0 +1,56 @@
+header{
+  background-color:black;
+  height:70px;
+  width:100%;
+  margin:0;
+}
+
+.header_logo{
+  display:inline-block;
+  float:left;
+  margin-left:20px;
+}
+
+.header_button{
+  display:inline-block;
+  float:right;
+  margin:20px 20px 0 0;
+  width:100px;
+  text-align:center;
+}
+
+.header_button1{
+  display:inline-block;
+  float:right;
+  margin:5px 20px 0 0;
+}
+
+.account_content{
+  background-color:white;
+}
+
+.account{
+  color:white;
+  cursor: pointer
+}
+
+.icon_image {
+  width: 50px;
+  height: 50px;
+  //サイズ指定
+  border-radius: 25px;
+  //画像を丸くする
+  object-fit: cover;
+  //タテヨコ比を変えないままトリミング
+}
+
+.account_menu{
+  text-align:center;
+  margin:20px 0;
+}
+
+.search_form{
+  display:inline-block;
+  float:left;
+  margin:20px 0 0 20px;
+}

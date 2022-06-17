@@ -1,0 +1,30 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+main{
+  min-height:600px;
+}
+
+.show_main{
+  margin:50px 30%;
+}
+
+.information_show{
+  padding:10px;
+  border:1px solid #e2e2e2;
+  margin-top:20px;
+}
+
+.information{
+  margin:10px 0;
+  padding:10px;
+  border-bottom:1px solid #e2e2e2;
+}
+
+.reference{
+  padding:0 10px;
+}
+
+.notice, .errors_message, .required{
+  color:red;
+}

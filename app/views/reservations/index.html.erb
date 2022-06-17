@@ -1,0 +1,32 @@
+<header>
+    
+  <% if user_signed_in? %>
+    <%= render 'shared/logged_in_header' %>
+  <% else %>
+    <%= render 'shared/not_logged_in_header' %>
+  <% end %>
+
+</header>
+
+<main class = "show_main">
+  
+  <p class="notice"><%= flash[:notice] %></p>
+  
+  <h3>予約済みルーム</h3>
+  
+  <% @reservations.each do |reservation| %>
+    <div class = "information_show">
+      <h3 class = "information"><%= reservation.name %></h3>
+      <p class = "information"><%= reservation.start_date %> ~ <%= reservation.end_date %></p>
+      <p class = "information">¥<%= reservation.price %></p>
+      <p class = "reference"><%=link_to "参照", reservation_path(reservation.id) %></p>
+    </div>
+  <% end %>
+  
+  <div><%= will_paginate @reservations, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %></div>
+  
+</main>
+
+<footer>
+  <%= render "shared/footer" %>
+</footer>

@@ -1,0 +1,129 @@
+// Place all the styles related to the travels controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+  margin:0;
+}
+
+main1{
+  display:block;
+  background-image:url("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_cover_top.jpg");
+  background-repeat:no-repeat;
+  background-size:cover;
+  height:650px;
+  width:100%;
+  position:relative;
+}
+
+main2{
+  display:flex;
+  justify-content:center;
+  min-height:450px;
+  padding:40px 0;
+}
+
+.main_title{
+  margin:20px;
+}
+
+.main_search{
+  position:absolute;
+  top:150px;
+  left:150px;
+  background-color:white;
+  height:300px;
+  width:500px;
+  padding:20px;
+  border-radius: 10px;
+}
+
+.main_form{
+  width:100%;
+  margin-top:20px;
+}
+
+.flash{
+  position:absolute;
+  background-color:#20c997;;
+  color:white;
+  width:100%;
+  padding-left:20px;
+}
+
+.area_link{
+  display:inline-block;
+  position:relative;
+  margin:20px;
+}
+
+.area_image{
+  height:350px;
+  width:220px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+span{
+  position:absolute;
+  top:90%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  color:white;
+  font-size:25px;
+  font-weight:bold;
+}
+
+footer{
+  background-color:black;
+  height:150px;
+  width:100%;
+  margin:0;
+  text-align:center;
+  line-height:150px;
+  color:white;
+}
+
+@media (max-width: 1060px){
+  
+  .area_image{
+    height:350px;
+    width:150px;
+    object-fit:cover;
+    border-radius:10px;
+  }
+
+}
+
+@media (max-width: 790px){
+  
+  .area_image{
+    height:350px;
+    width:220px;
+    object-fit:cover;
+    border-radius:10px;
+  }
+
+}
+
+@media (min-width: 791px){
+  .responsible{
+    display:none;
+  }
+}
+
+@media (max-width: 740px){
+  .search_form{
+    display:none;
+  }
+}
+
+@media (max-width: 540px){
+  
+  .area_image{
+    height:350px;
+    width:150px;
+    object-fit:cover;
+    border-radius:10px;
+  }
+
+}

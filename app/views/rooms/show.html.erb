@@ -1,0 +1,39 @@
+<header>
+    
+  <% if user_signed_in? %>
+    <%= render 'shared/logged_in_header' %>
+  <% else %>
+    <%= render 'shared/not_logged_in_header' %>
+  <% end %>
+
+</header>
+
+<main class = "show_main">
+  
+  <h3>ルーム詳細</h3>
+  
+  <div class = "information_show">
+    <p class = "information"><strong>ルーム名:</strong><br><%= @room.name %></p>
+    <p class = "information"><strong>住所:</strong><br><%= @room.address %></p>
+    <p class = "information"><strong>ルーム画像:</strong><br><img src = <%= @room.image %> class = "detail_image"></p>
+    <p class = "information"><strong>料金/日:</strong><br>¥<%= @room.price %></p>
+    <p class = "information"><strong>ルーム詳細:</strong><br><%= @room.detail %></p>
+    <% if @room.user_id == current_user.id %>
+      <p class = "reference"><%=link_to "編集", edit_room_path(@room.id) %></p>
+      <p class = "reference"><%=link_to "削除", room_path(@room.id), method: :delete, data: { confirm: "本当に削除しますか？" } %></p>
+      <p class = "reference"><%=link_to "戻る", :back %></p>
+    <% else %>
+      <h4 class = "information">オーナー情報</h4>
+      <p class = "information"><strong>名前:</strong><br><%= @owner.name %></p>
+      <p class = "information"><strong>アイコン:</strong><br><img src=<%= @owner.image %> class = "icon_image"></p>
+      <p class = "information"><strong>自己紹介:</strong><br><%= @owner.introduction %></p>
+      <p class = "reference"><%=link_to "ルーム予約", new_reservation_path(@room.id) %></p>
+      <p class = "reference"><%=link_to "戻る", :back %></p>
+    <% end %>
+  </div>
+  
+</main>
+
+<footer>
+  <%= render "shared/footer" %>
+</footer>

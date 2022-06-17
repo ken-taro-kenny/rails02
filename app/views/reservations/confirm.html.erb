@@ -1,0 +1,43 @@
+<header>
+    
+  <% if user_signed_in? %>
+    <%= render 'shared/logged_in_header' %>
+  <% else %>
+    <%= render 'shared/not_logged_in_header' %>
+  <% end %>
+
+</header>
+
+<main class = "show_main">
+  
+  <h2>確認画面</h2>
+  
+  <div class = "information_show">
+  <%= form_with model: @reservation, local: true do |f| %>
+    
+    <p class = "information">ルーム名：<%= @reservation.name %></p>
+    <p class = "information">開始日：<%= @reservation.start_date %></p>
+    <p class = "information">終了日：<%= @reservation.end_date %></p>
+    <p class = "information">人数：<%= @reservation.people %>人</p>
+    <p class = "information">合計料金：¥<%= @price %></p>
+    
+    <%= f.hidden_field :start_date %>
+    <%= f.hidden_field :end_date %>
+    <%= f.hidden_field :people %>
+    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :room_id %>
+    <%= f.hidden_field :name %>
+    <%= f.hidden_field :price, value: @price %>
+  
+    <div class="actions">
+      <%= f.submit "予約を確定する" %>
+    </div>
+    <p class = "information"><%=link_to "取消", :travels %></p>
+  <% end %>
+  
+</div>
+</main>
+
+<footer>
+  <%= render "shared/footer" %>
+</footer>

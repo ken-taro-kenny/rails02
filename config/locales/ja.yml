@@ -1,0 +1,7 @@
+ja:
+  attributes:
+    name: ルーム名
+    image: ルーム画像
+    address: 住所
+    price: 料金
+    detail: ルーム詳細

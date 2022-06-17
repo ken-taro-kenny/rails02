@@ -1,0 +1,28 @@
+<header>
+    
+  <% if user_signed_in? %>
+    <%= render 'shared/logged_in_header' %>
+  <% else %>
+    <%= render 'shared/not_logged_in_header' %>
+  <% end %>
+
+</header>
+
+<main class = "search_room">
+  <% @rooms.each do |room| %>
+    <%= link_to(room_path(room.id), class: "room") do %>
+    <div class="post-list">
+      <p><img src = <%= room.image %> class = "room_image"></p>
+      <h4 class = "room_information"><%= room.name %></h4>
+      <p class = "room_information"><%= room.address %></p>
+      <p class = "room_information">¥<%= room.price %></p>
+    </div>
+    <% end %>
+  <% end %>
+  
+  <div><%= will_paginate @rooms, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %></div>
+</main>
+
+<footer>
+  <%= render "shared/footer" %>
+</footer>
