@@ -55,3 +55,7 @@ gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+
+group :development, :test do
+  gem 'rails-erd'
+end
